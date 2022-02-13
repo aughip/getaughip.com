@@ -1,0 +1,36 @@
+body {
+  font-family: 'Varela Round', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+.button {
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+
+  padding: 1rem;
+  font-weight: 700;
+  border-radius: .5rem;
+
+  width: fit-content;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+.primary {
+  background: var(--aughip-gradient);
+  color: white;
+  font-weight: 700;
+}
+span {
+  width: fit-content;
+}
+.container {
+  width: fit-content;
+}
+.center {
+  margin: auto;
+}
+.max-50 {
+  max-width: 50%;
+}

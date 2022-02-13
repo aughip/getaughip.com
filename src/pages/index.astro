@@ -1,0 +1,45 @@
+---
+import SocialEmbed from '$components/SocialEmbed.astro';
+import AugHipLogoType from '$components/aughip-logotype.astro';
+
+import { LATEST_INSTALLER, DISCORD_INVITE, GITHUB_REPO } from '$/constants.js';
+
+---
+<html lang="en">
+    <head>
+        <link rel="stylesheet" lang="scss" href="{Astro.resolve('../css/main.css')}">
+        <link rel="icon" href="/content/shared/favicon.ico">
+
+        <SocialEmbed
+            title="Augmented Hip: Virtual Hip Tracking"
+            description="A free and open virtual hip tracker that estimates your hip's position and orientation using your VR headset and feet!"
+            image="content/shared/banner.png"
+            color="#ff009d"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,800&family=Varela+Round&display=swap" rel="stylesheet">
+    </head>
+    <body class="landing-page">
+        <div class="video background fit">
+            <video autoplay="true" muted="true"></video>
+        </div>
+        <div class="header nav">
+            <ul class="items">
+                <li class="nav-item">
+                    <a class="menu-item" href={DISCORD_INVITE}>DISCORD</a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu-item" href={GITHUB_REPO}>GITHUB</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container flex center max-50">
+            <AugHipLogoType width="100%" />
+
+            <span class="subtitle">Free and open <span class="keyword">virtual hip tracking</span>, using your only your <span class="keyword">feet</span> and <span class="keyword">VR Headset</span>.</span>
+            <a class="button primary download" href={LATEST_INSTALLER}>DOWNLOAD</a>
+        </div>
+    </body>
+</html>
