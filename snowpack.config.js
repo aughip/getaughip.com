@@ -8,5 +8,6 @@ module.exports = {
     $components: './src/components',
     $content: './public/content',
     $layouts: './src/layouts',
+    $svg: './src/svg',
   },
 };

@@ -1,13 +1,31 @@
 ---
+import StandardLayout from '$layouts/StandardLayout.astro';
 import SocialEmbed from '$components/SocialEmbed.astro';
-import AugHipLogoType from '$components/aughip-logotype.astro';
 
-import { LATEST_INSTALLER, DISCORD_INVITE, GITHUB_REPO } from '$/constants.js';
+import AugHipLogoType from '$svg/aughip-logo.astro';
+import Heart from '$svg/heart.astro';
 
+// Socials
+import Github from '$svg/github.astro';
+import Discord from '$svg/discord.astro';
+
+// Tracker Icons
+import Apriltag from '$svg/apriltags.astro';
+import KinectV1 from '$svg/kinect_v1.astro';
+import KinectV2 from '$svg/kinect_v2.astro';
+import PSEye from '$svg/pseye.astro';
+import PSMove from '$svg/psmove.astro';
+import TouchLink from '$svg/touch_link.astro';
+import TundraLabs from '$svg/tundra_labs.astro';
+import ViveTracker from '$svg/vive_tracker.astro';
+import ViveWand from '$svg/vive_wand.astro';
+
+import { LATEST_INSTALLER, GITHUB_RELEASES, DISCORD_INVITE, GITHUB_REPO } from '$/constants.js';
 ---
 <html lang="en">
     <head>
-        <link rel="stylesheet" lang="scss" href="{Astro.resolve('../css/main.css')}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/content/shared/favicon.ico">
 
         <SocialEmbed
@@ -17,29 +35,129 @@ import { LATEST_INSTALLER, DISCORD_INVITE, GITHUB_REPO } from '$/constants.js';
             color="#ff009d"
         />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,800&family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <link rel="stylesheet" lang="scss" href="{Astro.resolve('../css/main.css')}">
     </head>
-    <body class="landing-page">
-        <div class="video background fit">
-            <video autoplay="true" muted="true"></video>
+    <body>
+        <div class="main-container">
+            <div class="top-nav">
+                <a href={GITHUB_REPO} class="nav-pill"><Github/>GitHub</a>
+                <a href={DISCORD_INVITE} class="nav-pill"><Discord/>Discord</a>
+            </div>
+            <div class="hero-div">
+                <div class="row">
+                    <div class="col-md-4" style="display: flex; align-items: center;">
+                        <div class="hero-text">
+                            <AugHipLogoType />
+                            <p style="margin: .5em 0;">Create a virtual hip tracker in SteamVR using only the position of your head and feet.
+                            <br><br>Compatible with most full-body tracking methods (more below).</p>
+                            <div class="hero-buttons">
+                                <a href="#info" class="button">Learn More</a>
+                                <a href="#download" class="button button-branded">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="video-container" style="width: 100%; height: 100%;">
+                            <video autoplay="true" muted loop class="hero-video" poster="/content/shared/media/video_poster.webp">
+                                <source src="/content/shared/media/demo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blerbs" id="info">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="blerb">
+                            <h1 style="-webkit-text-stroke: 1.5px #FFFFFF;">Works with almost anything!</h1>
+                            <h3 style="text-align: center; margin-bottom: .5em;">As long as your head and feet are being tracked, it will work.</h3>
+                            <div class="logo-row">
+                                    <ViveTracker />
+                                    <ViveWand />
+                                    <TundraLabs />
+                                    <KinectV1 />
+                                    <KinectV2 />
+                                    <PSMove />
+                                    <PSEye />
+                                    <a href="https://youtu.be/T59N3DPrvac" target="_blank" style="color:transparent" title="⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀
+⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀
+⠀⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀
+⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀
+⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀
+⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⠀⠀
+⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀
+⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀
+⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀
+⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀
+⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀">
+                                        <Apriltag/>
+                                   </a>
+                                   <TouchLink />
+                            </div>
+                            <div class="row" style="width: 100%; margin-top: .5em; text-align: center; flex-shrink: 1;">
+                                <div class="col">
+                                    <p style="font-size: 1.4em;">Vive Trackers<br>Vive Controllers<br>Tundra Trackers<br>All SteamVR devices<br>Xbox 360 Kinect</p>
+                                </div>
+                                <div class="col">
+                                    <p style="font-size: 1.4em;">Xbox One Kinect<br>PS Move + Eye<br>Apriltags<br>Oculus Touch Link<br>and more!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blerb">
+                            <h1 style="-webkit-text-stroke: 1.5px #FFFFFF;">How it works:</h1>
+                            <h3 style="text-align: left; margin-bottom: .5em;">By using inverse kinematics, the position and rotation of the waist can be approximated based on the position of the head and feet. Because there's only a certain way that the body can move.
+                            <br><br><br><br>
+                            <a href="https://en.wikipedia.org/wiki/Inverse_kinematics" style="color: var(--brand-color);">Read more on inverse kinematics</a>
+                        </h3>
+                        </div>
+                    </div>
+            </div>
         </div>
-        <div class="header nav">
-            <ul class="items">
-                <li class="nav-item">
-                    <a class="menu-item" href={DISCORD_INVITE}>DISCORD</a>
-                </li>
-                <li class="nav-item">
-                    <a class="menu-item" href={GITHUB_REPO}>GITHUB</a>
-                </li>
-            </ul>
+        <div class="downloads" id="download">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="download-col">
+                        <p><br></p>
+                        <h1 style="-webkit-text-stroke: 1.5px #FFFFFF; text-align: center;">Quick Setup</h1>
+                        <h3 style="text-align: center;"><br>Download the graphical installer<br>to auto-configure everything.
+                        <br><br><br>
+                    </h3>
+                    <a href={LATEST_INSTALLER} class="button">Download Installer</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="download-col">
+                        <p><br></p>
+                        <h1 style="-webkit-text-stroke: 1.5px #FFFFFF; text-align: center;">For advanced users</h1>
+                        <h3 style="text-align: center; margin-bottom: .5em;"><br>Download the driver and manually<br>add it to SteamVR.
+                        <br><br><br>
+                    </h3>
+                    <a href={GITHUB_RELEASES} class="button">Releases on GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 1.5em;">
+                <code>aughip-installer-gui v0.1</code>
+                <code>augmented-hip v0.1</code>
+            </div>
         </div>
-        <div class="container flex center max-50">
-            <AugHipLogoType width="100%" />
+        </div>
+        <div class="footer">
+            <p style="color: #aaaaaa;">Made with <Heart height="1.5rem"/> by Hekky</p>
+            <p style="color: #aaaaaa; font-size: 1.1em; line-height: .6em;">Licensed under GPLv3</p>
+        </div>
 
-            <span class="subtitle">Free and open <span class="keyword">virtual hip tracking</span>, using your only your <span class="keyword">feet</span> and <span class="keyword">VR Headset</span>.</span>
-            <a class="button primary download" href={LATEST_INSTALLER}>DOWNLOAD</a>
-        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     </body>
 </html>

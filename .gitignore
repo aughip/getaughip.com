@@ -17,9 +17,6 @@ yarn-error.log*
 # macOS-specific files
 .DS_Store
 
-# pnpm
-pnpm-lock.yaml
-
 # IDE configs
 .idea/
 .vscode/
