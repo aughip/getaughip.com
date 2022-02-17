@@ -1,3 +1,57 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: sans-serif;
+  background-image: url(/content/shared/media/header.webp);
+  background-color: var(--background-primary);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  color: var(--main-color);
+  font-family: 'Varela Round', sans-serif;
+  width: 100vw;
+  margin: 0;
+  position: absolute;
+}
+
+a:hover {
+  color: unset;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.button {
+  background-color: #FFFFFF33;
+  border-radius: 6px;
+  color: var(--main-color);
+  font-size: 1.5em;
+  padding: 0.5em 1.2em;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  border: 3px solid var(--main-color);
+  box-shadow: 0px 0px 8px var(--main-color);
+}
+
+.button-branded {
+  background-color: #FF009D33;
+  border: 3px solid var(--brand-color);
+  color: var(--brand-color);
+  box-shadow: 0px 0px 8px var(--brand-color);
+}
+
+code {
+  background-color: var(--background-secondary);
+  color: var(--main-color);
+  font-family: 'Consolas', 'Lucida Console', Courier, monospace;
+  font-size: 1.5em;
+  font-weight: 200;
+  padding: 0.2em;
+  border-radius: 6px;
+}
+
+code:first-of-type {
+  margin-right: .5em;
 }
