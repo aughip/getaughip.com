@@ -20,7 +20,12 @@ import TundraLabs from '$svg/tundra_labs.astro';
 import ViveTracker from '$svg/vive_tracker.astro';
 import ViveWand from '$svg/vive_wand.astro';
 
-import { LATEST_INSTALLER, GITHUB_RELEASES, DISCORD_INVITE, GITHUB_REPO } from '$/constants.js';
+import { LATEST_INSTALLER, GITHUB_RELEASES, DISCORD_INVITE, GITHUB_REPO, GITHUB_API_AUG_DRIVER, GITHUB_API_AUG_INSTALLER } from '$/constants.js';
+
+const driverGithubApiRequest = await fetch(GITHUB_API_AUG_DRIVER);
+const driverVersion = (await driverGithubApiRequest.json()).name;
+const installerGithubApiRequest = await fetch(GITHUB_API_AUG_DRIVER);
+const installerVersion = (await installerGithubApiRequest.json()).name;
 ---
 <html lang="en">
     <head>
@@ -152,8 +157,8 @@ import { LATEST_INSTALLER, GITHUB_RELEASES, DISCORD_INVITE, GITHUB_REPO } from '
                 </div>
             </div>
             <div style="text-align: center; margin-top: 1.5em;">
-                <code>aughip-installer-gui v0.1</code>
-                <code>augmented-hip v0.1</code>
+                <code>{"aughip-installer-gui " + installerVersion}</code>
+                <code>{"augmented-hip " + driverVersion}</code>
             </div>
         </div>
         </div>
