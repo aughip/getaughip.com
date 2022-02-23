@@ -1,2 +1,2 @@
-# hyblocker.dev
-funny shitty personal site
+# getaughip.com
+website for Augmented Hip
