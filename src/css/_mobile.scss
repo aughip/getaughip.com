@@ -36,3 +36,17 @@
 		height: auto;
 	}
 }
+
+@media only screen and (max-width: 1410px) {
+	#info .col-md-6 {
+		width: 100%;
+		padding-bottom: var(--bs-gutter-x);
+	}
+}
+
+// Hide github + discord icons when tiny AF
+@media only screen and (max-width: 368px) {
+	.nav-pill svg {
+		display: none;
+	}
+}
